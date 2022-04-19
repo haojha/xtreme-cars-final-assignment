@@ -1,0 +1,68 @@
+@import "../../theme.scss";
+.car-details {
+  background-color: $whiteColor;
+  padding: 2rem 3rem;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sections {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.section1 {
+  display: flex;
+}
+
+.progress-bar {
+  flex: 0.05;
+
+  display: flex;
+  align-items: center;
+}
+
+.section-image {
+  flex: 0.7;
+}
+
+.specs1 {
+  flex: 0.25;
+  background-color: $whiteColor;
+  padding-left: 1rem;
+  h5 {
+    padding: 0;
+    margin: 0;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  padding-bottom: 1rem;
+}
+
+.specs-space-between {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+.cost {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.book-now-button {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.link-decoration {
+  text-decoration: none;
+}

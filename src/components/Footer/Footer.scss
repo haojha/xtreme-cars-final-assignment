@@ -1,0 +1,21 @@
+.footer-nav {
+  top: 90vh;
+
+  background-color: black;
+  color: white;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.colum {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.footer-logo {
+  height: 2rem;
+  width: 2rem;
+  padding-bottom: 0.7rem;
+}

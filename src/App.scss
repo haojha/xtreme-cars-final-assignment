@@ -1,0 +1,12 @@
+@import "./theme.scss";
+.background {
+  background-color: $blackColor;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+}
+
+.patch {
+  background-color: $whiteColor;
+  height: 3rem;
+}

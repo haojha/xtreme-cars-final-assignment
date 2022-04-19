@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import CarBooking from "./pages/CarBooking/CarBooking";
@@ -13,15 +13,23 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Dashboard />}></Route>
-          <Route path="/carListing" element={<CarListing />}></Route>
-          <Route path="/carDetail/:carId" element={<CarDetails />}></Route>
-          <Route path="/carBooking" element={<CarBooking />}></Route>
-          <Route path="/confirmation" element={<Confirmation />}></Route>
-        </Routes>
-        <Footer />
+        <div className="header-nav">
+          <Header />
+        </div>
+        <div className="patch"></div>
+        <div className="background">
+          <Routes>
+            <Route path="/" element={<Dashboard />}></Route>
+            <Route path="/carListing" element={<CarListing />}></Route>
+            <Route path="/carDetails/:carId" element={<CarDetails />}></Route>
+            <Route path="/carBooking" element={<CarBooking />}></Route>
+            <Route path="/confirmation" element={<Confirmation />}></Route>
+          </Routes>
+        </div>
+
+        <div className="footer-nav">
+          <Footer />
+        </div>
       </BrowserRouter>
     </div>
   );

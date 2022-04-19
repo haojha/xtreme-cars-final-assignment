@@ -1,0 +1,48 @@
+@import "../../theme.scss";
+.carousel {
+  background-color: skyblue;
+}
+
+@import "../../theme.scss";
+.featured-cars {
+  padding: 2rem 1rem;
+  background-color: $whiteColor;
+}
+
+.featured-cars-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#popular {
+  background-color: $blackColor;
+  color: $whiteColor;
+}
+
+#tab1 {
+  background-color: #f5f5f5;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.arrow-logo {
+  height: 1rem;
+  width: 1rem;
+}
+
+.view-all-with-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.card-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.view-all-link {
+  text-decoration: none;
+  color: $blackColor;
+}

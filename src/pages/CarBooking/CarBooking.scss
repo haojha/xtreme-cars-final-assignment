@@ -1,0 +1,57 @@
+@import "../../theme.scss";
+.car-details {
+  background-color: $whiteColor;
+  padding: 2rem 1rem;
+}
+
+.car-details-parent {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  background-color: $whiteColor;
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.car-description {
+  background-color: rgba(0, 0, 0, 5%);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  flex: 0.2;
+}
+
+.booking-details {
+  background-color: rgba(0, 0, 0, 5%);
+  flex: 0.8;
+  padding-left: 1rem;
+}
+
+.view-all-with-icon-alignment {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.terms-and-condition {
+  h6 {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.field-width {
+  width: 20rem;
+  height: 3rem;
+  padding-bottom: 0.5rem;
+}
+
+.submit-button {
+  margin-top: 1rem;
+}
+
+.button-link-submit {
+  text-decoration: none;
+}
