@@ -1,5 +1,6 @@
 import { Tab, Tabs, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import arrow from "../../Assets/arrow.svg";
 import carousel1 from "../../Assets/carousel1.svg";
@@ -10,13 +11,26 @@ import left from "../../Assets/left.svg";
 import right from "../../Assets/right.svg";
 import ButtonComponent from "../../components/Button/ButtonComponent";
 import Card from "../../components/Card/Card";
+import { RootState } from "../../Redux/Store/configureStore";
+import { GET_ALL_CARS } from "../../Redux/Store/reducers/carsReducer";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const cars = useSelector((state: RootState) => state.cars.cars);
+  console.log(cars);
+  useEffect(() => {
+    console.log("Dashboard");
+    dispatch({ type: GET_ALL_CARS });
+  }, []);
   let a = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
   let i = 0;
   let background_images = [carousel1, carousel2, carousel3, carousel4];
   const [image, setImage] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearch = (val: string) => {
+    setSearchTerm(val);
+  };
   return (
     <div className="dashboard">
       <div className="carousel">
@@ -56,6 +70,8 @@ const Dashboard = () => {
                   fullWidth
                   id="outlined-basic"
                   label="Enter car name... "
+                  value={searchTerm}
+                  onChange={(event) => handleSearch(event.target.value)}
                   variant="outlined"
                 />
               </div>
@@ -91,9 +107,20 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="card-list">
-          {a.map((el: any) => {
-            return <Card />;
-          })}
+          {cars
+            .slice(0, 4)
+            .filter((val: any) => {
+              if (searchTerm === "") {
+                return val;
+              } else if (
+                val.name.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return val;
+              } else return 0;
+            })
+            .map((car: any) => {
+              return <Card car={car} />;
+            })}
         </div>
       </div>
     </div>

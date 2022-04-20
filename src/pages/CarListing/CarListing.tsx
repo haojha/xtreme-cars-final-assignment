@@ -1,22 +1,26 @@
 import { Tab, Tabs } from "@mui/material";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card/Card";
+import { RootState } from "../../Redux/Store/configureStore";
 import "./CarListing.scss";
 const CarListing = () => {
-  let a = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-  ];
+  const dispatch = useDispatch();
+  const cars = useSelector((state: RootState) => state.cars.cars);
+  // let a = [
+  //   { id: 1 },
+  //   { id: 2 },
+  //   { id: 3 },
+  //   { id: 4 },
+  //   { id: 1 },
+  //   { id: 2 },
+  //   { id: 3 },
+  //   { id: 4 },
+  //   { id: 1 },
+  //   { id: 2 },
+  //   { id: 3 },
+  //   { id: 4 },
+  // ];
   return (
     <div className="car-listing">
       <div className="tabs">
@@ -36,10 +40,10 @@ const CarListing = () => {
         </Tabs>
       </div>
       <h6>
-        <b>48 Total Results</b>
+        <b>{cars.length} Total Results</b>
         <div className="cards-list">
-          {a.map((el: any) => {
-            return <Card />;
+          {cars.map((car: any) => {
+            return <Card car={car} />;
           })}
         </div>
       </h6>
