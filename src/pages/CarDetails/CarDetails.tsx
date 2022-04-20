@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import brown from "../../Assets/brown.svg";
 import finish1 from "../../Assets/finish1.svg";
 import finish2 from "../../Assets/finish2.svg";
@@ -13,6 +13,8 @@ import ButtonComponent from "../../components/Button/ButtonComponent";
 import "./CarDetails.scss";
 
 const CarDetails = () => {
+  let { carId } = useParams();
+  console.log("carId", carId);
   return (
     <div className="car-details">
       <div className="heading">

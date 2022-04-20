@@ -1,12 +1,18 @@
 import { Tab, Tabs } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card/Card";
 import { RootState } from "../../Redux/Store/configureStore";
+import { GET_ALL_CARS } from "../../Redux/Store/reducers/carsReducer";
 import "./CarListing.scss";
 const CarListing = () => {
   const dispatch = useDispatch();
   const cars = useSelector((state: RootState) => state.cars.cars);
+  console.log(cars);
+  useEffect(() => {
+    console.log("Dashboard");
+    dispatch({ type: GET_ALL_CARS });
+  }, []);
   // let a = [
   //   { id: 1 },
   //   { id: 2 },
