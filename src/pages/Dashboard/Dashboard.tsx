@@ -1,15 +1,70 @@
-import { Tab, Tabs } from "@mui/material";
-import React from "react";
+import { Tab, Tabs, TextField } from "@mui/material";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import arrow from "../../Assets/arrow.svg";
+import carousel1 from "../../Assets/carousel1.svg";
+import carousel2 from "../../Assets/carousel2.svg";
+import carousel3 from "../../Assets/carousel3.svg";
+import carousel4 from "../../Assets/carousel4.svg";
+import left from "../../Assets/left.svg";
+import right from "../../Assets/right.svg";
+import ButtonComponent from "../../components/Button/ButtonComponent";
 import Card from "../../components/Card/Card";
 import "./Dashboard.scss";
+
 const Dashboard = () => {
   let a = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+  let i = 0;
+  let background_images = [carousel1, carousel2, carousel3, carousel4];
+  const [image, setImage] = useState(0);
   return (
     <div className="dashboard">
       <div className="carousel">
-        <h1>Carousel</h1>
+        <div
+          className="caro"
+          style={{
+            backgroundImage: `url(${background_images[image]})`,
+            backgroundSize: "cover",
+            height: "100vh",
+            color: "#f5f5f5",
+          }}
+        >
+          <div className="carousel-child">
+            <h1 className="dream-car-heading">FIND YOUR DREAM CAR</h1>
+            <div className="arrows">
+              <img
+                onClick={() => {
+                  console.log(image);
+                  console.log("left");
+                  setImage((prev_img) => Math.abs(prev_img - 1) % 4);
+                }}
+                src={left}
+              ></img>
+              <img
+                onClick={() => {
+                  console.log(image);
+                  console.log("right");
+                  setImage((prev_img) => Math.abs(prev_img + 1) % 4);
+                }}
+                src={right}
+              ></img>
+            </div>
+
+            <div className="field-with-button">
+              <div className="field-width-search">
+                <TextField
+                  fullWidth
+                  id="outlined-basic"
+                  label="Enter car name... "
+                  variant="outlined"
+                />
+              </div>
+              <div className="search-button">
+                <ButtonComponent buttonText="Search"></ButtonComponent>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="featured-cars">
         <h5>

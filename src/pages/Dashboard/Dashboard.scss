@@ -1,7 +1,7 @@
 @import "../../theme.scss";
-.carousel {
-  background-color: skyblue;
-}
+// .carousel {
+//   background-color: skyblue;
+// }
 
 @import "../../theme.scss";
 .featured-cars {
@@ -45,4 +45,41 @@
 .view-all-link {
   text-decoration: none;
   color: $blackColor;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.field-with-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.field-width {
+  background-color: $whiteColor;
+}
+
+// .carousel {
+//   padding-top: 50vh;
+// }
+
+.carousel-child {
+  padding-top: 45vh;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  align-self: center;
+}
+
+.field-width-search {
+  width: 30rem;
+  background-color: $whiteColor;
+}
+
+.dream-car-heading {
+  padding-left: 25rem;
 }
