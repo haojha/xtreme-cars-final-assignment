@@ -2,9 +2,13 @@ import { Button } from "@mui/material";
 import React from "react";
 import "./ButtonComponent.scss";
 
-const ButtonComponent = ({ buttonText }: any) => {
+const ButtonComponent = ({ buttonText, submitButton = false }: any) => {
   return (
-    <Button id="button" variant="contained">
+    <Button
+      type={submitButton ? "submit" : "button"}
+      id="button"
+      variant="contained"
+    >
       {buttonText}
     </Button>
   );
