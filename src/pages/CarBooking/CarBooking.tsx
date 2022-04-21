@@ -5,11 +5,14 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useParams } from "react-router-dom";
 import arrow from "../../Assets/arrow.svg";
 import smallBmw from "../../Assets/smallBmw.svg";
 import ButtonComponent from "../../components/Button/ButtonComponent";
+import { RootState } from "../../Redux/Store/configureStore";
+import { GET_CAR_DETAILS_BY_ID } from "../../Redux/Store/reducers/carsReducer";
 import "./CarBooking.scss";
 const CarBooking = () => {
   let cities = [
@@ -18,6 +21,19 @@ const CarBooking = () => {
     { city: "Delhi" },
     { city: "Bangalore" },
   ];
+  // const location = useLocation();
+  // const { carDetail }: any = location.state;
+  // console.log(carDetail);
+  let { carId } = useParams();
+  const carDetail = useSelector((state: RootState) => state.cars.carDetail);
+  console.log("carId", carId);
+  console.log("car detail", carDetail);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("car detail dispatch");
+    dispatch({ type: GET_CAR_DETAILS_BY_ID, carId: carId });
+  }, []);
   return (
     <div className="car-details">
       <div className="car-details-parent">
@@ -27,21 +43,21 @@ const CarBooking = () => {
           </h2>
           <img src={smallBmw} alt="" />
           <h3>
-            <b>BMW X5</b>
+            <b>{carDetail?.specifications?.name}</b>
           </h3>
 
           <p>Fuel type</p>
           <h5>
-            <b>Petrol and Diesel</b>
+            <b>{carDetail?.specifications?.fuel_type}</b>
           </h5>
 
           <p>Engine</p>
           <h5>
-            <b>2993 to 2998 C</b>
+            <b>{carDetail?.specifications?.engine_cc}</b>
           </h5>
 
           <div className="view-all-with-icon-alignment">
-            <NavLink className="view-all-link" to="/carListing">
+            <NavLink className="view-all-link" to={`/carDetails/${carId}`}>
               <h6>View all Details</h6>
             </NavLink>
             <NavLink to="/carListing">

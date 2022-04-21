@@ -22,7 +22,7 @@ function App() {
             <Route path="/" element={<Dashboard />}></Route>
             <Route path="/carListing" element={<CarListing />}></Route>
             <Route path="/carDetails/:carId" element={<CarDetails />}></Route>
-            <Route path="/carBooking" element={<CarBooking />}></Route>
+            <Route path="/carBooking/:carId" element={<CarBooking />}></Route>
             <Route path="/confirmation" element={<Confirmation />}></Route>
           </Routes>
         </div>

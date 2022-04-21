@@ -30,7 +30,7 @@ const CarDetails = () => {
     <div className="car-details">
       <div className="heading">
         <h2>
-          <b>{carDetail.specifications.name}</b>
+          <b>{carDetail?.specifications?.name}</b>
         </h2>
         <h2>
           Car <b>Specifications</b>
@@ -48,32 +48,32 @@ const CarDetails = () => {
             <div className="spec">
               <p>Fuel type</p>
               <h5>
-                <b>{carDetail.specifications.fuel_type}</b>
+                <b>{carDetail?.specifications?.fuel_type}</b>
               </h5>
             </div>
 
             <div className="spec">
               <p>Engine</p>
               <h5>
-                <b>2993 to 2998 C</b>
+                <b>{carDetail?.specifications?.engine_cc}</b>
               </h5>
             </div>
             <div className="spec">
               <p>Torque</p>
               <h5>
-                <b>{carDetail.specifications.torque}</b>
+                <b>{carDetail?.specifications?.torque}</b>
               </h5>
             </div>
             <div className="spec">
               <p>Acceleration</p>
               <h5>
-                <b>{carDetail.specifications.acceleration}</b>
+                <b>{carDetail?.specifications?.acceleration}</b>
               </h5>
             </div>
             <div className="spec">
               <p>Top Speed</p>
               <h5>
-                <b>{carDetail.specifications.top_speed}</b>
+                <b>{carDetail?.specifications?.top_speed}</b>
               </h5>
             </div>
             <div className="spec">
@@ -130,17 +130,17 @@ const CarDetails = () => {
 
               <div className="points">
                 <ul>
-                  {carDetail.interior.text.map((point: any) => {
+                  {carDetail?.interior?.text.map((point: any) => {
                     return <li>{point}</li>;
                   })}
                 </ul>
               </div>
               <div className="cost">
                 <h3>Cost</h3>
-                <h3>{carDetail.cost}</h3>
+                <h3>{carDetail?.cost}</h3>
               </div>
               <div className="book-now-button">
-                <Link className="link-decoration" to="/carBooking">
+                <Link className="link-decoration" to={`/carBooking/${carId}`}>
                   <ButtonComponent buttonText="BOOK NOW"></ButtonComponent>
                 </Link>
               </div>
